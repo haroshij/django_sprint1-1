@@ -46,7 +46,8 @@ posts = [
 
 def index(request):
     template = 'blog/index.html'
-    return render(request, template)
+    context = {'posts': posts}
+    return render(request, template, context)
 
 
 def post_detail(request, id):
@@ -56,6 +57,6 @@ def post_detail(request, id):
 
 
 def category_posts(request, category):
-    template = 'blog/detail.html'
+    template = 'blog/category.html'
     context = {'category': posts[category]}  # надо исправить, чтобы подключались все посты с указанной категорией.
     return render(request, template, context)
