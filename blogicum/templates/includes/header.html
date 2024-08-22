@@ -16,16 +16,22 @@
             </a>
           </li>
           {% endwith %}
+          {% with request.resolver_match.view_name as view_name %}
           <li class="nav-item">              
-            <a class="nav-link" href="about.html">
+            <a class="nav-link {% if view_name  == 'pages:about' %}active{% endif %}"
+              href="{% url 'pages:about' %}">
               О проекте
             </a>
           </li>
+          {% endwith %}
+          {% with request.resolver_match.view_name as view_name %}
           <li class="nav-item">
-            <a class="nav-link" href="rules.html">
+            <a class="nav-link {% if view_name  == 'pages:rules' %}active{% endif %}"
+              href="{% url 'pages:rules' %}">
               Наши правила
             </a>
           </li>
+          {% endwith %}
         </ul>      
       </div>
     </nav> 

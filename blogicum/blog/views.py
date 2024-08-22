@@ -52,11 +52,11 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
-    context = {'id': posts[id]}
+    context = {'post': posts[id]}
     return render(request, template, context)
 
 
-def category_posts(request, category):
+def category_posts(request, category_slug):
     template = 'blog/category.html'
-    context = {'category': posts[category]}  # надо исправить, чтобы подключались все посты с указанной категорией.
+    context = {'category_slug': category_slug}
     return render(request, template, context)
